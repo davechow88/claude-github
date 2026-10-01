@@ -1,0 +1,310 @@
+/* ============================================
+   TRANSIT APP — styles.css extension
+   (light/dark tokens already in styles.css)
+   ============================================ */
+
+/* Key / setup screen */
+.screen {
+  display: none;
+  min-height: 100vh;
+}
+.screen.active {
+  display: block;
+}
+
+.key-card {
+  max-width: 420px;
+  margin: 6rem auto;
+  padding: 2.5rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+.key-card h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+.key-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.75rem;
+}
+.key-form label {
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.key-form input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 1.5px solid var(--border-color);
+  border-radius: 0.5rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.key-form input:focus {
+  border-color: var(--accent);
+}
+.key-form input::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+.key-hint {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0.6rem 0 1.25rem;
+}
+.key-hint a {
+  text-decoration: underline;
+}
+.primary-btn {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #a78bfa);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+.primary-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+.ghost-btn {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.ghost-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--accent);
+}
+
+/* Transit header */
+.transit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.route-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+.route-from { font-weight: 600; color: var(--text-primary); }
+.route-arrow { color: var(--text-secondary); }
+.route-to { font-weight: 600; color: var(--accent); }
+
+/* Journey info strip */
+.journey-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.j-row {
+  flex: 1 1 0;
+  min-width: 100px;
+  padding: 0.9rem 1.5rem;
+}
+.j-row + .j-row {
+  border-left: 1px solid var(--border-color);
+}
+.j-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 0.15rem;
+}
+.j-value {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+/* Stop groups */
+.stop-group {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.stop-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.stop-group-header h3 {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+.stop-address {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.stop-marker {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.stop-marker.origin {
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
+}
+.stop-marker.dest {
+  background: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.25);
+}
+
+/* Stop / arrival cards */
+.stop-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.arrival-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 0.6rem;
+  transition: background-color 0.2s;
+}
+.arrival-card:hover {
+  background: var(--bg-secondary);
+}
+.bus-number {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent);
+  min-width: 2.5rem;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  background: var(--bg-secondary);
+  border-radius: 0.4rem;
+}
+.arrival-details {
+  flex: 1;
+  min-width: 0;
+}
+.bus-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.arrival-times {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.2rem;
+}
+.time-chip {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.35rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+.time-chip.soon {
+  color: #22c55e;
+  border-color: rgba(34,197,94,0.3);
+}
+.time-chip.warning {
+  color: #f59e0b;
+  border-color: rgba(245,158,11,0.3);
+}
+.bus-type-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+  background: #8b5cf6;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Shared section */
+.shared-section {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.shared-section h3 {
+  font-size: 1rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+/* Loading pulse */
+.loading-pulse {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Transit footer */
+.transit-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.transit-footer a {
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .route-badge {
+    font-size: 0.78rem;
+  }
+  .j-row {
+    min-width: 50%;
+  }
+  .arrival-card {
+    flex-wrap: wrap;
+  }
+}

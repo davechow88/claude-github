@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transit — CT Hub 2 to Thomson Plaza</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="transit.css">
+</head>
+<body>
+  <!-- ======================================== -->
+  <!-- API KEY SCREEN                         -->
+  <!-- ======================================== -->
+  <div id="key-screen" class="screen active">
+    <div class="key-card">
+      <h2>🚌 Transit SG</h2>
+      <p class="key-subtitle">CT Hub 2 → Thomson Plaza</p>
+      <div class="key-form">
+        <label for="api-key">LTA DataMall API Key</label>
+        <input
+          type="text"
+          id="api-key"
+          placeholder="Paste your free API key here…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <p class="key-hint">
+          Get one free at
+          <a href="https://datamall.lta.gov.sg" target="_blank" rel="noopener">datamall.lta.gov.sg</a>
+        </p>
+        <button id="key-submit" class="primary-btn">Start</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================== -->
+  <!-- MAIN TRANSIT APP                        -->
+  <!-- ======================================== -->
+  <div id="app-screen" class="screen">
+    <header class="transit-header">
+      <div class="route-badge">
+        <span class="route-from">CT Hub 2</span>
+        <span class="route-arrow">→</span>
+        <span class="route-to">Thomson Plaza</span>
+      </div>
+      <button id="transit-theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <span class="toggle-icon sun">☀️</span>
+        <span class="toggle-icon moon">🌙</span>
+      </button>
+    </header>
+
+    <!-- Journey info strip -->
+    <section class="journey-info">
+      <div class="j-row">
+        <span class="j-label">Distance</span>
+        <span class="j-value" id="j-distance">~8.5 km</span>
+      </div>
+      <div class="j-row">
+        <span class="j-label">Est. travel</span>
+        <span class="j-value" id="j-time">35–50 min</span>
+      </div>
+      <div class="j-row">
+        <span class="j-label">Best route</span>
+        <span class="j-value" id="j-best">Loading…</span>
+      </div>
+    </section>
+
+    <!-- Origin stops -->
+    <section class="stop-group">
+      <div class="stop-group-header">
+        <div class="stop-marker origin"></div>
+        <div>
+          <h3>CT Hub 2</h3>
+          <p class="stop-address">277 Alexandra Rd, S159935</p>
+        </div>
+      </div>
+      <div id="origin-stops" class="stop-cards">
+        <div class="loading-pulse">Searching stops…</div>
+      </div>
+    </section>
+
+    <!-- Destination stops -->
+    <section class="stop-group">
+      <div class="stop-group-header">
+        <div class="stop-marker dest"></div>
+        <div>
+          <h3>Thomson Plaza</h3>
+          <p class="stop-address">301 Upper Thomson Rd, S574408</p>
+        </div>
+      </div>
+      <div id="dest-stops" class="stop-cards">
+        <div class="loading-pulse">Searching stops…</div>
+      </div>
+    </section>
+
+    <!-- Shared services (routes that hit both) -->
+    <section class="shared-section" id="shared-section" style="display:none;">
+      <h3>Direct buses (both stops)</h3>
+      <div id="shared-cards" class="stop-cards"></div>
+    </section>
+
+    <footer class="transit-footer">
+      <p>Data via <a href="https://datamall.lta.gov.sg" target="_blank" rel="noopener">LTA DataMall</a> · Updated every 30 s</p>
+      <button id="refresh-btn" class="ghost-btn">↻ Refresh</button>
+    </footer>
+  </div>
+
+  <script src="transit.js"></script>
+</body>
+</html>
